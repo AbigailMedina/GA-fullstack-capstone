@@ -1,0 +1,18 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .header-user {
+    font-size: 1rem;
+    color:var(--my-black)
+  }

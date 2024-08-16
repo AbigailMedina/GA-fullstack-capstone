@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  db:
+    build: ./db
+    container_name: capstone_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: capstone_db
+
+  backend:
+    build: ./backend
+    container_name: budget-backend
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: postgres
+      DB_PASSWORD: password
+      DB_NAME: capstone_db
+
+  frontend:
+    build: ./frontend
+    container_name: budget-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
